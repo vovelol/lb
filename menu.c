@@ -12,7 +12,7 @@ int main() {
     int arr[100];
     int n = 0;
 
-    while (n < 100 && scanf("%d", &arr[n]) != EOF && scanf("%d", &arr[n]) == 1) {
+    while (scanf("%d", &arr[n]) == 1) {
         n++;
     }
 
