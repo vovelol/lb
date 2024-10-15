@@ -4,12 +4,11 @@
 #include <wx/wx.h>
 #include <wx/grid.h>
 #include <vector>
-#include <memory>  // Для использования unique_ptr
+#include <memory>
 #include "Game.h"
-#include "ShipSegment.h"
 
 // Предварительное объявление класса ShipDropTarget
-class ShipDropTarget; 
+class ShipDropTarget;
 
 class MyApp : public wxApp {
 public:
@@ -21,21 +20,27 @@ public:
     MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
     ~MyFrame();
 
-    void setGame(std::unique_ptr<Game> game);
-    void InitializeGrid(int rows, int cols, int oneDeck, int twoDeck, int threeDeck, int fourDeck);
-    
     wxGrid* getGameGrid() const;
 
+    void StartGame();
+
     void OnGridCellDrop(int shipSize, int x, int y);
-    void OnStartGame(wxCommandEvent& event);
+    void OnStartButtonClicked(wxCommandEvent& event);
+    void OnGridAttackClick(wxGridEvent& event);
 
 private:
-    std::vector<std::vector<char>> gridState;
-    std::vector<std::vector<ShipSegment>> shipInfo;
-    wxGrid* gameGrid = nullptr;
+    void InitializeGrid(int size);
+    void BindShipEvents(wxStaticBitmap* shipImg, int shipSize);
+    void ToggleShipOrientation(wxStaticBitmap* shipImg, int shipSize);
+    void UpdateShipCounters();
+    void AddShipImages();
 
     wxBoxSizer* mainSizer;
-    wxBoxSizer* rightSizer;
+    wxBoxSizer* controlSizer;  // Добавляем controlSizer для размещения кораблей и кнопок
+
+    wxGrid* gameGrid = nullptr;
+
+    wxButton* startButton = nullptr;
 
     wxStaticBitmap* oneDeckShipImg;
     wxStaticBitmap* twoDeckShipImg;
@@ -47,23 +52,16 @@ private:
     wxStaticText* threeDeckShipText;
     wxStaticText* fourDeckShipText;
 
-    int selectedShipSize = -1;
+    int gridSize;
+    int oneDeck;
+    int twoDeck;
+    int threeDeck;
+    int fourDeck;
     bool isVertical = false;
-    bool isGameStarted = false;
 
-    std::unique_ptr<Game> game_;  // Изменено с обычного объекта на std::unique_ptr
+    std::unique_ptr<Game> game_;  
+    ShipDropTarget* shipDropTarget = nullptr;
 
-    ShipDropTarget* shipDropTarget = nullptr;  // Объект ShipDropTarget
-
-    void AddShipImages();
-    void BindShipEvents(wxStaticBitmap* shipImg, int shipSize);
-    void OnGridCellClick(wxGridEvent& gridEvent);
-    void OnGridAttackClick(wxGridEvent& gridEvent);
-    void ShowSettingsDialog();
-    void UpdateShipCounters();
-    void DecreaseShipCount(int shipSize);
-    void ToggleShipOrientation(wxStaticBitmap* shipImg, int shipSize);
-    
     wxDECLARE_EVENT_TABLE();
 };
 

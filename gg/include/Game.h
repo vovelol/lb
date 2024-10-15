@@ -1,21 +1,21 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <vector>
 #include "Field.h"
 #include "ShipManager.h"
+#include <vector>
 
 class Game {
 public:
     Game(int width, int height, const std::vector<std::pair<int, bool>>& shipData);
 
-    bool attack(int x, int y);
-    ShipManager& getShipManager();  // Метод для получения ссылки на ShipManager
-    Field& getField();  // Метод для получения ссылки на Field
+    // Методы для доступа к объектам поля и менеджера кораблей
+    Field& getField();
+    ShipManager& getShipManager();
 
 private:
-    Field field_;
     ShipManager shipManager_;
+    Field field_;
 };
 
-#endif // GAME_H
+#endif  // GAME_H

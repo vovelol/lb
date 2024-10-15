@@ -1,46 +1,23 @@
 #include "ShipManager.h"
 
-ShipManager::ShipManager(const std::vector<std::pair<int, bool>>& shipData) {
-    for (const auto& data : shipData) {
-        ships.emplace_back(data.first, data.second);
-        availableShips.push_back(data.first);  // Добавляем количество доступных кораблей
-    }
+ShipManager::ShipManager(int oneDeck, int twoDeck, int threeDeck, int fourDeck) {
+    availableShips[1] = oneDeck;
+    availableShips[2] = twoDeck;
+    availableShips[3] = threeDeck;
+    availableShips[4] = fourDeck;
 }
 
-// Обрабатываем попадание по кораблю
-bool ShipManager::attackShip(int shipIndex, int segmentIndex) {
-    if (shipIndex >= 0 && shipIndex < ships.size()) {
-        return ships[shipIndex].hitSegment(segmentIndex);
-    }
-    return false;
-}
-
-// Проверяем, уничтожен ли корабль
-bool ShipManager::isShipDestroyed(int shipIndex) const {
-    if (shipIndex >= 0 && shipIndex < ships.size()) {
-        return ships[shipIndex].isSunk();
-    }
-    return false;
-}
-
-// Возвращаем количество доступных кораблей определённого размера
 int ShipManager::getAvailableShips(int size) const {
-    int count = 0;
-    for (const auto& ship : ships) {
-        if (ship.getLength() == size) {
-            count++;
-        }
+    auto it = availableShips.find(size);
+    if (it != availableShips.end()) {
+        return it->second;
     }
-    return count;
+    return 0; // Если такого размера корабля нет, возвращаем 0
 }
 
-// Уменьшаем количество кораблей определённого размера
-bool ShipManager::decreaseShipCount(int size) {
-    for (auto it = ships.begin(); it != ships.end(); ++it) {
-        if (it->getLength() == size) {
-            ships.erase(it);  // Удаляем корабль из списка
-            return true;
-        }
+void ShipManager::decreaseAvailableShips(int size) {
+    auto it = availableShips.find(size);
+    if (it != availableShips.end() && it->second > 0) {
+        it->second -= 1; // Уменьшаем количество доступных кораблей на 1, если оно больше 0
     }
-    return false;
 }

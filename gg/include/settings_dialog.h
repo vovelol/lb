@@ -2,21 +2,28 @@
 #define SETTINGS_DIALOG_H
 
 #include <wx/wx.h>
-#include <wx/spinctrl.h>
+#include <wx/spinctrl.h>  // Добавляем этот заголовочный файл для использования wxSpinCtrl
 
 class SettingsDialog : public wxDialog {
 public:
     SettingsDialog(wxWindow* parent);
 
-    int GetSelectedGridSize() const;
-    wxArrayInt GetSelectedShips() const;
+    int getGridSize() const;
+    int getOneDeckShips() const;
+    int getTwoDeckShips() const;
+    int getThreeDeckShips() const;
+    int getFourDeckShips() const;
 
 private:
-    wxSpinCtrl* gridSizeCtrl;
-    wxSpinCtrl* oneDeckCtrl;
-    wxSpinCtrl* twoDeckCtrl;
-    wxSpinCtrl* threeDeckCtrl;
-    wxSpinCtrl* fourDeckCtrl;
+    wxSpinCtrl* gridSizeInput;
+    wxSpinCtrl* oneDeckInput;
+    wxSpinCtrl* twoDeckInput;
+    wxSpinCtrl* threeDeckInput;
+    wxSpinCtrl* fourDeckInput;
+
+    void OnOk(wxCommandEvent& event);
+
+    wxDECLARE_EVENT_TABLE();
 };
 
-#endif  // SETTINGS_DIALOG_H
+#endif // SETTINGS_DIALOG_H

@@ -400,10 +400,12 @@ CMakeFiles/MyWxWidgetsApp.dir/src/main.cpp.o: \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /mnt/c/1teach/OOP/gg/include/Game.h /mnt/c/1teach/OOP/gg/include/Field.h \
- /mnt/c/1teach/OOP/gg/include/ShipManager.h \
- /mnt/c/1teach/OOP/gg/include/Ship.h \
- /mnt/c/1teach/OOP/gg/include/ShipSegment.h \
- /mnt/c/1teach/OOP/gg/include/settings_dialog.h \
- /usr/include/wx-3.2/wx/spinctrl.h /usr/include/wx-3.2/wx/spinbutt.h \
- /usr/include/wx-3.2/wx/range.h /usr/include/wx-3.2/wx/gtk/spinbutt.h \
- /usr/include/wx-3.2/wx/gtk/spinctrl.h
+ /mnt/c/1teach/OOP/gg/include/ShipManager.h /usr/include/c++/13/map \
+ /usr/include/c++/13/bits/stl_tree.h /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h /usr/include/c++/13/locale \
+ /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/c++/13/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/13/bits/locale_conv.h

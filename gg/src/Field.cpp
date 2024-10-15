@@ -68,7 +68,7 @@ bool Field::isCellOccupied(int x, int y) const {
 }
 
 void Field::markCellAsHit(int x, int y) {
-    if (field_[y][x] != '.') {
+    if (field_[y][x] == 'S') {
         field_[y][x] = 'H';  // Обозначаем попадание
     }
 }
@@ -77,4 +77,25 @@ void Field::markCellAsMiss(int x, int y) {
     if (field_[y][x] == '.') {
         field_[y][x] = 'M';  // Обозначаем промах
     }
+}
+
+bool Field::attackCell(int x, int y) {
+    if (x < 0 || x >= width_ || y < 0 || y >= height_) {
+        return false;  // Координаты за пределами поля
+    }
+
+    if (field_[y][x] == 'S') {
+        // Попадание по кораблю
+        field_[y][x] = 'H';
+        markCellAsHit(x, y);
+        return true;
+    } else if (field_[y][x] == '.') {
+        // Промах
+        field_[y][x] = 'M';
+        markCellAsMiss(x, y);
+        return false;
+    }
+
+    // Если уже стреляли в эту клетку (то есть она уже помечена 'H' или 'M')
+    return false;
 }

@@ -16,6 +16,9 @@ public:
     void markCellAsHit(int x, int y);
     void markCellAsMiss(int x, int y);
 
+    // Новый метод для атаки по клетке
+    bool attackCell(int x, int y);
+
 private:
     int width_;
     int height_;

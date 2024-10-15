@@ -1,7 +1,7 @@
 CMakeFiles/MyWxWidgetsApp.dir/src/Game.cpp.o: \
  /mnt/c/1teach/OOP/gg/src/Game.cpp /usr/include/stdc-predef.h \
- /mnt/c/1teach/OOP/gg/include/Game.h /usr/include/c++/13/vector \
- /usr/include/c++/13/bits/requires_hosted.h \
+ /mnt/c/1teach/OOP/gg/include/Game.h /mnt/c/1teach/OOP/gg/include/Field.h \
+ /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -51,6 +51,10 @@ CMakeFiles/MyWxWidgetsApp.dir/src/Game.cpp.o: \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
- /mnt/c/1teach/OOP/gg/include/Field.h \
- /mnt/c/1teach/OOP/gg/include/ShipManager.h \
- /mnt/c/1teach/OOP/gg/include/Ship.h /mnt/c/1teach/OOP/gg/include/Field.h
+ /mnt/c/1teach/OOP/gg/include/ShipManager.h /usr/include/c++/13/map \
+ /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/ext/aligned_buffer.h \
+ /usr/include/c++/13/bits/node_handle.h \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h \
+ /usr/include/c++/13/bits/erase_if.h
